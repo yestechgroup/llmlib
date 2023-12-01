@@ -1,0 +1,36 @@
+{
+  "name": "@samhwang/ts-starter-template",
+  "version": "1.0.0",
+  "description": "TypeScript Starter Template",
+  "engines": {
+    "node": "^20.0.0",
+    "pnpm": "^8.0.0"
+  },
+  "packageManager": "pnpm@8.11.0",
+  "scripts": {
+    "start": "tsx bin/index.ts",
+    "prebuild": "rimraf dist",
+    "build": "rimraf dist && tsup",
+    "pretest": "rimraf coverage",
+    "typecheck": "tsc",
+    "test": "vitest run",
+    "test:watch": "vitest watch",
+    "test:CI": "pnpm run test && pnpm run typecheck",
+    "lint": "biome check ./src/**.ts",
+    "lint:fix": "biome check --apply ./src/**.ts",
+    "lint:fix:unsafe": "biome check --apply-unsafe ./src/**.ts",
+    "format": "biome format --write ./src/**.ts",
+    "ci": "biome ci ./src/**.ts"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.4.1",
+    "@types/node": "^18.19.0",
+    "@vitest/coverage-v8": "^0.34.6",
+    "esbuild": "^0.19.8",
+    "rimraf": "^5.0.5",
+    "tsup": "^8.0.1",
+    "tsx": "^4.6.1",
+    "typescript": "^5.3.2",
+    "vitest": "^0.34.6"
+  }
+}
